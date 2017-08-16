@@ -1,107 +1,378 @@
-package proj;
 
+import acm.graphics.*;
+import acm.program.*;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-import java.io.*;
-import javax.imageio.*;
-public class Proj1
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class MAINCLASS extends GraphicsProgram
 {
-    JFrame maingame;
-    Container storage;
-    JPanel p1;
-    JPanel p2;
-    JPanel p3;
-    JPanel p4;
-    JLabel p5;
-    JTextArea a1;
-    Font fontstyle1 = new Font("Times New Roman", Font.PLAIN, 90);
-    Font fontstyle2 = new Font("Times New Roman", Font.PLAIN, 30);
-    JButton startButton;
+    int theLeft4DeadCHAR_TRUE = 0;
+    int theWoodsCHAR_TRUE = 0;
+    int theAlleyCHAR_TRUE = 0;
     
-    projj22 class2 = new projj22();
-    
-    public static void main(String[] args)
+    public void init()
     {
+        startMenuButtons();
        
-      new Proj1();
     }
-    
+   public void run()
+   {
+     this.setSize(1100, 700);
+     this.setBackground(Color.BLACK);
+   }
    
-    
-    public Proj1()
-    {
-        
-        maingame = new JFrame();
-        maingame.setSize(800, 600);
-        maingame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        maingame.getContentPane().setBackground(Color.BLACK);    
-        maingame.setLayout(null);
-        
-        storage = maingame.getContentPane();
-        
-        p1 = new JPanel();
-        p1.setBounds(100, 100, 600, 150);
-        p1.setBackground(Color.BLACK);
-        p5 = new JLabel("DATASAL");
-        p5.setForeground(Color.WHITE);
-        p5.setFont(fontstyle1);
-        
-        p2 = new JPanel();
-        p2.setBounds(300, 400, 200, 100);
-        p2.setBackground(Color.BLACK);
-        
-        startButton = new JButton("Play Game");
-        startButton.setFont(fontstyle2);
-        startButton.setBackground(Color.RED);
-        startButton.setForeground(Color.WHITE);
-        startButton.addActionListener(class2);
-        
-     
-        
-        
-        
-        
-        
-        p1.add(p5);   
-        p2.add(startButton);
-        
-        storage.add(p1);
-        storage.add(p2);
-        
-           maingame.setVisible(true);
-        
-        
-    }
-    
-    public void GameScreen()
-    {
-        p1.setVisible(false);
-        p2.setVisible(false);
-        
-        p3 = new JPanel();
-        p3.setBackground(Color.RED);
-        p3.setBounds(100,100,600,250);
-        storage.add(p3);
-        
-        a1 = new JTextArea("dadada");
-        a1.setBounds(100,100,600,250);
-        a1.setBackground(Color.RED);
-        a1.setForeground(Color.white);
-        a1.setFont(fontstyle2);
-        a1.setLineWrap(true);
-        p3.add(a1);
+   public void startMenuButtons()
+   {
+      GRect Rect = new GRect(500,500,150,50);
+      Rect.setFillColor(Color.yellow);
+      Rect.setFilled(true);
+      add(Rect);
+      
+      Rect.addMouseListener(new MouseAdapter()
+      {
+          public void mouseClicked(MouseEvent e)
+              {
+                  println("c");
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+                  Rect.setFillColor(Color.WHITE);
+                  println("p");
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  Rect.setFillColor(Color.YELLOW);
+                  println("r");
+                  removeAll();
+                  theStreet();
+              }
        
-    }
+      });         
+   }
+   
+   public void theStreet()
+   {
+       GImage theStreetBG = new GImage("theStreetBG.jpg");
+       theStreetBG.setSize(1100, 700);
+       add(theStreetBG);
+       
+       GImage Image2 = new GImage("img2.jpg");
+       Image2.setLocation(300, 300);
+       Image2.setSize(200, 200);
+       add(Image2);      
+       
+   
+      GRect theWoodsButton = new GRect(660,550,120,40);
+      theWoodsButton.setFillColor(Color.yellow);
+      theWoodsButton.setFilled(true);
+      add(theWoodsButton);
+      
+      GLabel theWoodsButtonLabel = new GLabel("Go Right");
+      theWoodsButtonLabel.setLocation(660, 580);
+      add(theWoodsButtonLabel);
+      
+  
+          GRect theAlleyButton = new GRect(460,550,120,40);
+      theAlleyButton.setFillColor(Color.yellow);
+      theAlleyButton.setFilled(true);
+      add(theAlleyButton);
     
-    public class projj22 implements ActionListener
-    {
-        public void actionPerformed(ActionEvent event)
+      
+      GRect theLeft4DeadButton = new GRect(260,550,120,40);
+      theLeft4DeadButton.setFillColor(Color.yellow);
+      theLeft4DeadButton.setFilled(true);
+      add(theLeft4DeadButton);
+     
+      
+  
+      
+      theWoodsButton.addMouseListener(new MouseAdapter()
+      {
+          public void mouseClicked(MouseEvent e)
+              {
+                  println("c");
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+                  theWoodsButton.setFillColor(Color.WHITE);
+                  println("p");
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  theWoodsButton.setFillColor(Color.YELLOW);
+                  println("r");
+                 
+                  removeAll();
+                  theWoods();
+                  
+                  
+              }
+       
+      });  
+      
+      theAlleyButton.addMouseListener(new MouseAdapter()
+      {
+          public void mouseClicked(MouseEvent e)
+              {
+                  println("c");
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+                  theAlleyButton.setFillColor(Color.WHITE);
+                  println("p");
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  theAlleyButton.setFillColor(Color.YELLOW);
+                  println("r");
+                 
+                  removeAll();
+                  theAlley();
+                  
+                  
+              }
+       
+      });  
+      
+        theLeft4DeadButton.addMouseListener(new MouseAdapter()
+      {
+          public void mouseClicked(MouseEvent e)
+              {
+                  println("c");
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+                  theLeft4DeadButton.setFillColor(Color.WHITE);
+                  println("p");
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  theLeft4DeadButton.setFillColor(Color.YELLOW);
+                  println("r");
+                
+                  removeAll();
+                  theLeft4Dead();
+                  
+                  
+              }
+       
+      });
+   }
+   
+   public void theWoods()
+   {
+       GImage theWoodsBG = new GImage("theWoodsBG.jpg");
+       theWoodsBG.setSize(1100, 700);
+       add(theWoodsBG);
+       
+       GImage theWoodsCHAR = new GImage("theWoodsCHAR.jpg");
+       theWoodsCHAR.setSize(300, 300);
+       theWoodsCHAR.setLocation(260, 300);
+       add(theWoodsCHAR);
+       
+         
+      GRect theWoods_BACKBUTTON = new GRect(260,550,120,40);
+      theWoods_BACKBUTTON.setFillColor(Color.yellow);
+      theWoods_BACKBUTTON.setFilled(true);
+      add(theWoods_BACKBUTTON);
+       
+       if(theWoodsCHAR_TRUE==1)
+       {
+           theWoodsCHAR.setVisible(false);
+       }
+       
+        theWoodsCHAR.addMouseListener(new MouseAdapter()
         {
-            GameScreen();
-        }
-    }
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  theWoodsCHAR_TRUE=1;
+                  removeAll();
+                  theWoods();                 
+              }
+       
+        });
+        
+        theWoods_BACKBUTTON.addMouseListener(new MouseAdapter()
+        {
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  
+                  removeAll();
+                 theStreet();         
+              }
+       
+        });
+       
+   }
+   
+   public void theAlley()
+   {
+       GImage theAlleyBG = new GImage("theWoodsBG.jpg");
+       theAlleyBG.setSize(1100, 700);
+       add(theAlleyBG);
+       
+       GImage theAlleyCHAR = new GImage("theWoodsCHAR.jpg");
+       theAlleyCHAR.setSize(300, 300);
+       theAlleyCHAR.setLocation(260, 300);
+       add(theAlleyCHAR);
+       
+         
+      GRect theAlley_BACKBUTTON = new GRect(260,550,120,40);
+      theAlley_BACKBUTTON.setFillColor(Color.yellow);
+      theAlley_BACKBUTTON.setFilled(true);
+      add(theAlley_BACKBUTTON);
+       
+       if(theAlleyCHAR_TRUE==1)
+       {
+           theAlleyCHAR.setVisible(false);
+       }
+       
+        theAlleyCHAR.addMouseListener(new MouseAdapter()
+        {
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  theAlleyCHAR_TRUE=1;
+                  removeAll();
+                  theAlley();                 
+              }
+       
+        });
+        
+        theAlley_BACKBUTTON.addMouseListener(new MouseAdapter()
+        {
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  
+                  removeAll();
+                 theStreet();       
+              }
+       
+        });
+       
+   }
+   
+      public void theLeft4Dead()
+    {
+       GImage theLeft4DeadBG = new GImage("theLeft4DeadBG.jpg");
+       theLeft4DeadBG.setSize(1100, 700);
+       add(theLeft4DeadBG);
+       
+       GImage theLeft4DeadCHAR = new GImage("theWoodsCHAR.jpg");
+       theLeft4DeadCHAR.setSize(300, 300);
+       theLeft4DeadCHAR.setLocation(260, 300);
+       add(theLeft4DeadCHAR);
+       
+         
+      GRect theLeft4Dead_BACKBUTTON = new GRect(260,550,120,40);
+      theLeft4Dead_BACKBUTTON.setFillColor(Color.yellow);
+      theLeft4Dead_BACKBUTTON.setFilled(true);
+      add(theLeft4Dead_BACKBUTTON);
+       
+       if(theLeft4DeadCHAR_TRUE==1)
+       {
+           theLeft4DeadCHAR.setVisible(false);
+       }
+       
+        theLeft4DeadCHAR.addMouseListener(new MouseAdapter()
+        {
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  theLeft4DeadCHAR_TRUE=1;
+                  removeAll();
+                  theLeft4Dead();                 
+              }
+       
+        });
+        
+        theLeft4Dead_BACKBUTTON.addMouseListener(new MouseAdapter()
+        {
+          public void mouseClicked(MouseEvent e)
+              {
+                  
+              }
+          
+          public void mousePressed(MouseEvent e)
+              {
+
+              }
+          
+          public void mouseReleased(MouseEvent e)
+              {
+                  println("r");
+                  
+                  removeAll();
+                 theStreet();         
+              }
+       
+        });
+       
+   }
+   
+
+   
 }
+  
