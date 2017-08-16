@@ -1,0 +1,148 @@
+package cp12_capa_espiritu;
+
+/*
+ * File: CP12_CAPA_ESPIRITU.java
+ * -------------------
+ * Name: TAMMARA CAPA
+ * Section Leader:
+ * 
+ * This file will eventually implement the game of CP12_CAPA_ESPIRITU.
+ */
+
+import acm.graphics.*;
+import acm.program.*;
+import acm.util.*;
+
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CP12_CAPA_ESPIRITU extends GraphicsProgram {
+
+	public static final int APPLICATION_WIDTH = 600;
+	public static final int APPLICATION_HEIGHT = 600;
+
+	private static final int WIDTH = APPLICATION_WIDTH;
+	private static final int HEIGHT = APPLICATION_HEIGHT;
+
+	private static final int MONSTER_WIDTH = 60;
+	private static final int MONSTER_HEIGHT = 10;
+
+	private static final int MONSTER_Y_OFFSET = 100;
+
+	private static final int NBRICKS_PER_ROW = 10;
+
+
+	private static final int BALL_RADIUS = 30;
+        
+
+    
+         public static void main(String[] args){
+        new CP12_CAPA_ESPIRITU().start(args);
+    }
+        private GImage minigame;
+        private GImage background;
+        private GImage monster;
+	private GOval ball;
+        private double vx, vy;
+        private RandomGenerator rgen = RandomGenerator.getInstance();
+      
+        
+        
+	public void init() {      
+                setBackground(Color.CYAN);
+                background = new GImage("C:\\Users\\acer\\Documents\\NetBeansProjects\\CP12_CAPA_ESPIRITU\\src\\g.png");
+                background.setSize(WIDTH, HEIGHT);
+                add(background);
+                
+                monster = new GImage("C:\\Users\\acer\\Documents\\NetBeansProjects\\CP12_CAPA_ESPIRITU\\src\\monster.png");
+                monster.setSize(100, 100);
+                monster.setLocation(250, 465);
+                add(monster);
+                addMouseListeners();
+                
+                minigame = new GImage("C:\\Users\\acer\\Documents\\NetBeansProjects\\CP12_CAPA_ESPIRITU\\src\\minigame.png");
+                minigame.setSize(200,150);
+                minigame.setLocation(WIDTH/2-100, 10);
+                add(minigame);
+                
+                
+		ball = new GOval(WIDTH/2 - BALL_RADIUS, 200, BALL_RADIUS, BALL_RADIUS);
+		ball.setFilled(true);
+                ball.setColor(Color.WHITE);
+                ball.setFillColor(Color.WHITE);
+		add(ball);
+                
+        }
+	
+	public void mouseMoved(MouseEvent e) {
+		if ((e.getX() < getWidth() - MONSTER_WIDTH/2) && (e.getX() > MONSTER_WIDTH/2)) {
+			monster.setLocation(e.getX() - MONSTER_WIDTH/2, getHeight() - MONSTER_Y_OFFSET - MONSTER_HEIGHT);
+		}
+        }
+        
+        
+        
+        private void ballmovement() {
+         
+		vy = 5.5;
+		vx = rgen.nextDouble(1.0, 3.0);
+		if (rgen.nextBoolean(0.5)) {
+			vx = -vx; 
+		}
+                
+		
+			ball.move(vx, vy);
+		
+		if ((ball.getX() - vx <= 0 && vx < 0 )|| (ball.getX() + vx >= (getWidth() - BALL_RADIUS*2) && vx>0)) {
+			vx = -vx;
+		}
+		
+		if ((ball.getY() - vy <= 0 && vy < 0 )) {
+			vy = -vy;
+		}
+		
+		GObject collider = getCollidingObject();
+		if (collider == monster) {
+			
+			if(ball.getY() >= getHeight() - MONSTER_Y_OFFSET - MONSTER_HEIGHT - BALL_RADIUS*2 && ball.getY() < getHeight() - MONSTER_Y_OFFSET - MONSTER_HEIGHT - BALL_RADIUS*2 + 4) {
+				vy = -vy;	
+			}
+		}
+                
+			
+
+	}
+        
+        private GObject getCollidingObject() {
+		
+		if((getElementAt(ball.getX(), ball.getY())) != null) {
+	         return getElementAt(ball.getX(), ball.getY());
+	      }
+		else if (getElementAt( (ball.getX() + BALL_RADIUS*2), ball.getY()) != null ){
+	         return getElementAt(ball.getX() + BALL_RADIUS*2, ball.getY());
+	      }
+		else if(getElementAt(ball.getX(), (ball.getY() + BALL_RADIUS*2)) != null ){
+	         return getElementAt(ball.getX(), ball.getY() + BALL_RADIUS*2);
+	      }
+		else if(getElementAt((ball.getX() + BALL_RADIUS*2), (ball.getY() + BALL_RADIUS*2)) != null ){
+	         return getElementAt(ball.getX() + BALL_RADIUS*2, ball.getY() + BALL_RADIUS*2);
+	      }
+		
+		else{
+	         return null;
+	      }
+		
+	}
+     
+         
+          
+  
+	public void run() {
+                       removeAll();
+                        init();
+                        waitForClick();
+                        ballmovement();
+        }
+}
