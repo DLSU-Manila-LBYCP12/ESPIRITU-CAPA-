@@ -1,0 +1,107 @@
+package proj;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.io.*;
+import javax.imageio.*;
+public class Proj1
+{
+    JFrame maingame;
+    Container storage;
+    JPanel p1;
+    JPanel p2;
+    JPanel p3;
+    JPanel p4;
+    JLabel p5;
+    JTextArea a1;
+    Font fontstyle1 = new Font("Times New Roman", Font.PLAIN, 90);
+    Font fontstyle2 = new Font("Times New Roman", Font.PLAIN, 30);
+    JButton startButton;
+    
+    projj22 class2 = new projj22();
+    
+    public static void main(String[] args)
+    {
+       
+      new Proj1();
+    }
+    
+   
+    
+    public Proj1()
+    {
+        
+        maingame = new JFrame();
+        maingame.setSize(800, 600);
+        maingame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        maingame.getContentPane().setBackground(Color.BLACK);    
+        maingame.setLayout(null);
+        
+        storage = maingame.getContentPane();
+        
+        p1 = new JPanel();
+        p1.setBounds(100, 100, 600, 150);
+        p1.setBackground(Color.BLACK);
+        p5 = new JLabel("DATASAL");
+        p5.setForeground(Color.WHITE);
+        p5.setFont(fontstyle1);
+        
+        p2 = new JPanel();
+        p2.setBounds(300, 400, 200, 100);
+        p2.setBackground(Color.BLACK);
+        
+        startButton = new JButton("Play Game");
+        startButton.setFont(fontstyle2);
+        startButton.setBackground(Color.RED);
+        startButton.setForeground(Color.WHITE);
+        startButton.addActionListener(class2);
+        
+     
+        
+        
+        
+        
+        
+        p1.add(p5);   
+        p2.add(startButton);
+        
+        storage.add(p1);
+        storage.add(p2);
+        
+           maingame.setVisible(true);
+        
+        
+    }
+    
+    public void GameScreen()
+    {
+        p1.setVisible(false);
+        p2.setVisible(false);
+        
+        p3 = new JPanel();
+        p3.setBackground(Color.RED);
+        p3.setBounds(100,100,600,250);
+        storage.add(p3);
+        
+        a1 = new JTextArea("dadada");
+        a1.setBounds(100,100,600,250);
+        a1.setBackground(Color.RED);
+        a1.setForeground(Color.white);
+        a1.setFont(fontstyle2);
+        a1.setLineWrap(true);
+        p3.add(a1);
+       
+    }
+    
+    public class projj22 implements ActionListener
+    {
+        public void actionPerformed(ActionEvent event)
+        {
+            GameScreen();
+        }
+    }
+}
