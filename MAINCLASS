@@ -58,23 +58,23 @@ public class MAINCLASS extends GraphicsProgram
      
           public void startCALCULATOR()
     {
-        JFrame calculatorwindow = new JFrame("CALCULATOR APP");
-        CalcuESPIRITU C = new CalcuESPIRITU();
-        calculatorwindow.setSize(315,465);
-        calculatorwindow.setVisible(true);
-        C.init();
-        calculatorwindow.add(C);
-        C.addMouseListeners();
-        C.start();
+            JFrame calculatorwindow = new JFrame("CALCULATOR APP");
+            CalcuESPIRITU C = new CalcuESPIRITU();
+            calculatorwindow.setSize(315,465);
+            calculatorwindow.setVisible(true);
+            C.init();
+            calculatorwindow.add(C);
+            C.addMouseListeners();
+            C.start();
   
     }
     
     public void init()
     {
-        this.setSize(1400, 750);
-      GImage mainMenu_BG = new GImage("mainMenu_BG.jpg");
-      mainMenu_BG.setSize(1400, 750);
-      add(mainMenu_BG);
+            this.setSize(1400, 750);
+          GImage mainMenu_BG = new GImage("mainMenu_BG.jpg");
+          mainMenu_BG.setSize(1400, 750);
+          add(mainMenu_BG);
         
         
        
