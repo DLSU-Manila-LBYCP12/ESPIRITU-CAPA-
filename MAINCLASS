@@ -1,0 +1,1343 @@
+
+import acm.graphics.*;
+import acm.program.*;
+import breakout.BreakOutESPIRITU;
+import calculator.CalcuESPIRITU;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+import mylist.*;
+
+public class MAINCLASS extends GraphicsProgram {
+
+    int thirdStreet_CHAR_TRUE = 0;
+    int locationLabel_TRUE = 0;
+    int secondStreet_CHAR_TRUE = 0;
+    int theAlleyCHAR_TRUE = 0;
+    int theEscapeCHAR_TRUE = 0;
+    int YouWon = 0;
+    int addToPack_TRUE = 0;
+    int shampoo_TRUE = 0;
+    int brickGame_TRUE = 0;
+    int storyLine1_TRUE = 0;
+    
+    
+    int secondStreet_TALK1_TRUE = 0;
+    int thirdStreet_TALK1_TRUE=0;
+    int fourthStreet_TALK1_TRUE=0;
+    int fifthStreet_TALK1_TRUE=0;
+    int sixthStreet_TALK1_TRUE=0;
+    int seventhStreet_TALK1_TRUE=0;
+
+            
+            
+    
+    int mainRoad_TALK1_TRUE = 0;
+    int mainRoad_POLICE_TRUE = 0;
+    int turnonPack = 0;
+
+    int z = 2;
+    int c;
+
+     GLabel playBrickGame = new GLabel("Use");
+
+    String shampooSTRING;
+    
+    int a1 = 0;
+    int a2 =0;
+    int a3 =0;
+    int a4 =0;
+    int a5 =0;
+    int a6 =0;
+    int a7 =0;
+
+    String currentLocation = "Main Road";
+
+    Font titleFONT = new Font("Chiller", Font.PLAIN, 170);
+    
+    Font normalFONT = new Font("Chiller", Font.PLAIN, 60);
+    Font storyFONT = new Font("Chiller", Font.PLAIN, 40);
+    Font locationFONT = new Font("Arial-Bold", Font.BOLD, 28);
+    Font locationFONT2 = new Font("Arial-Bold", Font.BOLD, 23);
+    Font locationFONT3 = new Font("Arial-Bold", Font.BOLD, 19);
+    Font locationFONT4 = new Font("Arial-Bold", Font.BOLD, 15);
+    Font currentLocationFONT = new Font("Arial", Font.PLAIN, 15);
+
+
+    private MyList<String> BACKPACK = new MyList<String>();
+    
+  public void sixthStreet_METHOD() {
+           
+ 
+        currentLocation = "6th Street";
+        GImage sixthStreet_BG = new GImage("Site.jpg");
+       sixthStreet_BG.setSize(1400, 750);
+        add(sixthStreet_BG);
+
+        GImage sixthStreet_CHAR = new GImage("Construction-01.png");
+        sixthStreet_CHAR.setSize(600, 600);
+        sixthStreet_CHAR.setLocation(375, 100);
+        add(sixthStreet_CHAR);
+        
+        GLabel sixthStreet_BACKTO_thirdStreet = new GLabel("3rd Street");
+        sixthStreet_BACKTO_thirdStreet.setColor(Color.ORANGE);
+        sixthStreet_BACKTO_thirdStreet.setLocation(42, 260);
+        sixthStreet_BACKTO_thirdStreet.setFont(locationFONT3);
+        add(sixthStreet_BACKTO_thirdStreet);
+
+        GLabel sixthStreet_BACKTO_seventhStreet = new GLabel("7th Street");
+        sixthStreet_BACKTO_seventhStreet.setColor(Color.ORANGE);
+        sixthStreet_BACKTO_seventhStreet.setLocation(42, 290);
+        sixthStreet_BACKTO_seventhStreet.setFont(locationFONT3);
+        add(sixthStreet_BACKTO_seventhStreet);
+        
+        if(sixthStreet_TALK1_TRUE!=0){
+            GImage secondStreet_talk10 = new GImage("worker_nothing.png");
+            secondStreet_talk10.setLocation(270, 455);
+            secondStreet_talk10.setSize(800, 210);
+            add(secondStreet_talk10);
+    }
+        else {
+            GImage sixthStreet_talk1 = new GImage("question1.png");
+            sixthStreet_talk1.setLocation(270, 455);
+            sixthStreet_talk1.setSize(800, 210);
+            add(sixthStreet_talk1);
+
+            sixthStreet_talk1.addMouseListener(new MouseAdapter() {
+
+                public void mousePressed(MouseEvent e) {
+                    sixthStreet_talk1.setVisible(false);
+                    GImage sixthStreet_talk2 = new GImage("worker1.png");
+                    sixthStreet_talk2.setLocation(270, 455);
+                    sixthStreet_talk2.setSize(800, 210);
+                    add(sixthStreet_talk2);
+
+                    sixthStreet_talk2.addMouseListener(new MouseAdapter() {
+
+                        public void mousePressed(MouseEvent e) {
+                            sixthStreet_talk2.setVisible(false);
+                            GImage sixthStreet_talk3 = new GImage("worker2.png");
+                            sixthStreet_talk3.setLocation(270, 455);
+                            sixthStreet_talk3.setSize(800, 210);
+                            add(sixthStreet_talk3);
+
+                            sixthStreet_talk3.addMouseListener(new MouseAdapter() {
+
+                                public void mousePressed(MouseEvent e) {
+                                    
+                                    sixthStreet_talk3.setVisible(false);
+                                    GImage sixthStreet_talk4 = new GImage("question2.png");
+                                    sixthStreet_talk4.setLocation(270, 455);
+                                    sixthStreet_talk4.setSize(800, 210);
+                                    add(sixthStreet_talk4);
+     
+                                        sixthStreet_talk4.addMouseListener(new MouseAdapter() {
+
+                                        public void mousePressed(MouseEvent e) {
+
+                                            sixthStreet_talk4.setVisible(false);
+                                            GImage sixthStreet_talk5 = new GImage("worker3.png");
+                                            sixthStreet_talk5.setLocation(270, 455);
+                                            sixthStreet_talk5.setSize(800, 210);
+                                            add(sixthStreet_talk5);
+                                           
+                                                     sixthStreet_talk5.addMouseListener(new MouseAdapter() {
+
+                                                     public void mousePressed(MouseEvent e) {
+
+                                                     sixthStreet_talk5.setVisible(false);
+                                                     GImage sixthStreet_talk6 = new GImage("question3.png");
+                                                     sixthStreet_talk6.setLocation(270, 455);
+                                                     sixthStreet_talk6.setSize(800, 210);
+                                                     add(sixthStreet_talk6);
+                                                     
+                                                       sixthStreet_talk6.addMouseListener(new MouseAdapter() {
+
+                                                public void mousePressed(MouseEvent e) {
+
+                                                    sixthStreet_talk6.setVisible(false);
+                                                    sixthStreet_CHAR.setVisible(false);
+                                                    
+                                                    GImage sixthStreet_smallclue = new GImage("hollowblocks.png");
+                                                    sixthStreet_smallclue.setLocation(350, 500);
+                                                    sixthStreet_smallclue.setSize(300, 200);
+                                                    add(sixthStreet_smallclue);
+
+                                                    
+                                                            sixthStreet_smallclue.addMouseListener(new MouseAdapter() {
+
+                                                        public void mousePressed(MouseEvent e) {
+
+                                                            
+                                                            sixthStreet_smallclue.setVisible(false);
+
+
+                                                            GImage sixthStreet_MAINclue = new GImage("hollowblocks.png");
+                                                            sixthStreet_MAINclue.setLocation(550, 250);
+                                                            sixthStreet_MAINclue.setSize(450, 250);
+                                                            add(sixthStreet_MAINclue);
+                                                            
+                                                            
+                                                            sixthStreet_MAINclue.addMouseListener(new MouseAdapter() {
+
+                                                                public void mousePressed(MouseEvent e) {
+
+
+                                                                    sixthStreet_MAINclue.setVisible(false);
+                                                                    sixthStreet_CHAR.setVisible(true);
+                                                                    sixthStreet_MAINclue.sendToBack();
+
+                                                                    GImage sixthStreet_talk7 = new GImage("worker5.png");
+                                                                    sixthStreet_talk7.setLocation(270, 455);
+                                                                    sixthStreet_talk7.setSize(800, 210);
+                                                                    add(sixthStreet_talk7);
+                                                                    
+                                                                        sixthStreet_talk7.addMouseListener(new MouseAdapter() {
+
+                                                                        public void mousePressed(MouseEvent e) {
+
+
+                                                                            sixthStreet_talk7.setVisible(false);
+                                                                           
+                                                                            GImage sixthStreet_talk8 = new GImage("worker6.png");
+                                                                            sixthStreet_talk8.setLocation(270, 455);
+                                                                            sixthStreet_talk8.setSize(800, 210);
+                                                                            add(sixthStreet_talk8);
+
+                                                                                sixthStreet_talk8.addMouseListener(new MouseAdapter() {
+                                                                                     public void mousePressed(MouseEvent e) {
+                                                                                       sixthStreet_talk8.setVisible(false);
+                                                                                         sixthStreet_CHAR.sendToFront();
+
+                                                                                            GImage sixthStreet_talk10 = new GImage("worker_nothing.png");
+                                                                                            sixthStreet_talk10.setLocation(270, 455);
+                                                                                            sixthStreet_talk10.setSize(800, 210);
+                                                                                            add(sixthStreet_talk10);
+
+                                                                                            sixthStreet_TALK1_TRUE = 1; 
+                                                                                            
+                                                                                     }
+
+                                                                            });
+
+                                                                        }
+                                                                    });
+
+                                                                }
+                                                            });
+
+                                                        }
+                                                    });
+
+                                                }
+                                            }); 
+
+
+
+                                                 }
+                                             });
+
+                                        }
+                                    });
+
+                                }
+                            });
+
+                        }
+                    });
+
+                }
+            });
+
+        }
+
+        displayPack();
+
+
+        sixthStreet_BACKTO_seventhStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                sixthStreet_BACKTO_seventhStreet.setColor(Color.ORANGE);
+                removeAll();
+                
+                seventhStreet_METHOD();
+
+            }
+
+        });
+
+        sixthStreet_BACKTO_thirdStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                sixthStreet_BACKTO_thirdStreet.setColor(Color.WHITE);
+                sixthStreet_BACKTO_thirdStreet.setColor(Color.ORANGE);
+                removeAll();
+                displayPack();
+                thirdStreet_METHOD();
+            }
+
+        });
+
+    }
+
+
+    public void init() {
+        this.setSize(1400, 750);
+        GImage mainMenu_BG = new GImage("mainMenu_BG.jpg");
+        mainMenu_BG.setSize(1400, 750);
+        add(mainMenu_BG);
+       
+
+    }
+
+    public void run() {
+        BACKPACK.createList();
+
+        addToPack();
+        displayPack();
+
+        startMenuButtons();
+
+    }
+    
+    
+    public void startBREAKOUT() {
+        JFrame breakoutwindow = new JFrame("BREAKOUT GAME");
+        BreakOutESPIRITU B = new BreakOutESPIRITU();
+        breakoutwindow.setSize(400, 600);
+        breakoutwindow.setVisible(true);
+        breakoutwindow.add(B);
+        B.addMouseListeners();
+        B.start();
+    }
+
+    public void startCALCULATOR() {
+        JFrame calculatorwindow = new JFrame("CALCULATOR APP");
+        CalcuESPIRITU C = new CalcuESPIRITU();
+        calculatorwindow.setSize(315, 465);
+        calculatorwindow.setVisible(true);
+        C.init();
+        calculatorwindow.add(C);
+        C.addMouseListeners();
+        C.start();
+
+    }
+
+
+   public void currentLocation_METHOD() {
+        if (locationLabel_TRUE == 1) {
+            GLabel currentLocation_LABEL = new GLabel("Location: ");
+            currentLocation_LABEL.setColor(Color.BLACK);
+            currentLocation_LABEL.setLocation(1100, 30);
+            currentLocation_LABEL.setFont(locationFONT);
+            add(currentLocation_LABEL);
+
+            GLabel currentLocation_LABEL2 = new GLabel(currentLocation);
+            currentLocation_LABEL2.setColor(Color.ORANGE);
+            currentLocation_LABEL2.setLocation(1230, 30);
+            currentLocation_LABEL2.setFont(locationFONT2);
+            add(currentLocation_LABEL2);
+        }
+
+    }
+   
+   public void currentMap_METHOD()
+   {
+       GImage currentMap = new GImage("Map.png");
+       {
+           if (locationLabel_TRUE == 1) {
+           currentMap.setSize(200, 200);
+           currentMap.setLocation(0, 0);
+           add(currentMap);
+           
+           GLabel goTo = new GLabel("TRAVEL TO:");
+           goTo.setFont(locationFONT3);
+           goTo.setLocation(35, 225);
+           add(goTo);
+           
+           }
+       }
+   }
+    public void startMenuButtons() {
+
+        GLabel STARTGAME_BUTTON = new GLabel("DEATH AT DATASAL");
+        STARTGAME_BUTTON.setColor(Color.WHITE);
+        STARTGAME_BUTTON.setLocation(220, 300);
+        STARTGAME_BUTTON.setFont(titleFONT);
+        add(STARTGAME_BUTTON);
+
+        GLabel QUITGAME_BUTTON = new GLabel("QUIT");
+        QUITGAME_BUTTON.setColor(Color.ORANGE);
+        QUITGAME_BUTTON.setLocation(800, 550);
+        QUITGAME_BUTTON.setFont(normalFONT);
+        add(QUITGAME_BUTTON);
+
+        GLabel CREATORS_BUTTON = new GLabel("CREATORS");
+        CREATORS_BUTTON.setColor(Color.ORANGE);
+        CREATORS_BUTTON.setLocation(42, 260);
+        CREATORS_BUTTON.setFont(normalFONT);
+        add(CREATORS_BUTTON);
+
+        STARTGAME_BUTTON.addMouseListener(new MouseAdapter() {
+
+                
+                 public void mousePressed(MouseEvent e) {
+                     STARTGAME_BUTTON.setColor(Color.YELLOW);
+                 }
+                      public void mouseReleased(MouseEvent e) {
+                          STARTGAME_BUTTON.setColor(Color.WHITE);
+                          if (storyLine1_TRUE == 0) {
+                    removeAll();
+                    GImage storyLine1BG = new GImage("story1.jpg");
+                    storyLine1BG.setSize(1400, 750);
+                    add(storyLine1BG);
+                    storyLine1_TRUE = 1;
+                    locationLabel_TRUE = 1;
+                }
+
+                GLabel proc1 = new GLabel("PROCEED");
+                proc1.setColor(Color.WHITE);
+                proc1.setLocation(750, 550);
+                proc1.setFont(normalFONT);
+                add(proc1);
+
+                proc1.addMouseListener(new MouseAdapter() {
+                     
+                 public void mousePressed(MouseEvent e) {
+                     proc1.setColor(Color.YELLOW);
+                 }
+                      public void mouseReleased(MouseEvent e) {
+                          proc1.setColor(Color.WHITE);
+                    
+                       
+                        removeAll();
+                        turnonPack = 1;
+                        brickGame_TRUE = 1;
+                        mainRoad_METHOD();
+
+                    }
+
+                });
+                 }
+                
+                
+
+            
+
+        });
+
+        QUITGAME_BUTTON.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+             
+                removeAll();
+                quitGame();
+            }
+
+        });
+
+    }
+
+     public void useButtons() {
+        if (brickGame_TRUE == 1) {
+
+            playBrickGame.setColor(Color.ORANGE);
+            playBrickGame.setLocation(1170, 88);
+            playBrickGame.setFont(locationFONT4);
+            add(playBrickGame);
+        }
+
+        playBrickGame.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+
+                startCALCULATOR();
+                startBREAKOUT();
+            }
+
+        });
+
+    }
+
+     public void displayPack() {
+        currentLocation_METHOD();
+        currentMap_METHOD();
+        if (turnonPack == 1) {
+            println("CURRENT PACK SIZE:   " + BACKPACK.size());
+            for (int i = 1; i <= BACKPACK.size(); i++) {
+                GLabel packTitle = new GLabel("Backpack (" + BACKPACK.size() + ")");
+                packTitle.setFont(locationFONT3);
+                packTitle.setColor(Color.BLACK);
+                add(packTitle, 1225, 60);
+                useButtons();
+
+                GLabel item = new GLabel("" + i + ".  " + BACKPACK.get(i));
+                item.setFont(locationFONT4);
+                item.setColor(Color.BLACK);
+                add(item, 1200, 72 + (17 * i));
+            }
+        }
+
+    }
+    public void addToPack() {
+        if (BACKPACK.isEmpty()) {
+            BACKPACK.add(1, "BrickGame Device");
+        }
+        if (addToPack_TRUE == 1) {
+            if (shampoo_TRUE == 1) {
+
+                BACKPACK.add(z, shampooSTRING);
+                z++;
+
+                addToPack_TRUE = 0;
+            }
+        }
+
+    }
+
+    public void mainRoad_METHOD() {
+
+        currentLocation = "Main Road";
+
+        GImage mainRoad_BG = new GImage("street.jpg");
+        mainRoad_BG.setSize(1400, 750);
+        add(mainRoad_BG);
+
+        if (mainRoad_POLICE_TRUE == 0) {
+            GImage mainRoad_police = new GImage("Police-01.png");
+            mainRoad_police.setLocation(375, 100);
+            mainRoad_police.setSize(600, 600);
+            add(mainRoad_police);
+
+        }
+
+        GImage mainRoad_talk1 = new GImage("police_talk1.png");
+        mainRoad_talk1.setLocation(270, 455);
+        mainRoad_talk1.setSize(800, 210);
+
+        GLabel fourthStreet_BUTTON = new GLabel("4th Street.");
+        fourthStreet_BUTTON.setColor(Color.ORANGE);
+        fourthStreet_BUTTON.setLocation(42, 320);
+        fourthStreet_BUTTON.setFont(locationFONT3);
+        add(fourthStreet_BUTTON);
+
+        GLabel secondStreet_BUTTON = new GLabel("2nd Street.");
+        secondStreet_BUTTON.setColor(Color.ORANGE);
+        secondStreet_BUTTON.setLocation(42, 290);
+        secondStreet_BUTTON.setFont(locationFONT3);
+        add(secondStreet_BUTTON);
+
+        GLabel thirdStreet_BUTTON = new GLabel("3rd Street");
+        thirdStreet_BUTTON.setColor(Color.ORANGE);
+        thirdStreet_BUTTON.setLocation(42, 260);
+        thirdStreet_BUTTON.setFont(locationFONT3);
+        add(thirdStreet_BUTTON);
+
+        displayPack();
+
+        if (mainRoad_TALK1_TRUE == 0) {
+            add(mainRoad_talk1);
+            mainRoad_talk1.addMouseListener(new MouseAdapter() {
+
+                public void mousePressed(MouseEvent e) {
+                    GImage mainRoad_talk2 = new GImage("police_talk2.png");
+                    mainRoad_talk2.setLocation(270, 455);
+                    mainRoad_talk2.setSize(800, 210);
+                    add(mainRoad_talk2);
+
+                    mainRoad_talk2.addMouseListener(new MouseAdapter() {
+
+                        public void mousePressed(MouseEvent e) {
+                            mainRoad_talk1.setVisible(false);
+                            mainRoad_talk2.setVisible(false);
+                            GImage mainRoad_casefile = new GImage("Case_File.png");
+                            mainRoad_casefile.setLocation(300, -10);
+                            mainRoad_casefile.setSize(700, 700);
+                            add(mainRoad_casefile);
+
+                            mainRoad_casefile.addMouseListener(new MouseAdapter() {
+
+                                public void mousePressed(MouseEvent e) {
+                                    mainRoad_casefile.setVisible(false);
+                                    GImage mainRoad_alibis = new GImage("alibis.png");
+                                    mainRoad_alibis.setLocation(300, -10);
+                                    mainRoad_alibis.setSize(700, 700);
+                                    add(mainRoad_alibis);
+
+                                    mainRoad_alibis.addMouseListener(new MouseAdapter() {
+
+                                        public void mousePressed(MouseEvent e) {
+                                            removeAll();
+                                            mainRoad_TALK1_TRUE = 1;
+                                            mainRoad_POLICE_TRUE = 1;
+                                            mainRoad_METHOD();
+
+                                        }
+                                    });
+
+                                }
+                            });
+
+                        }
+                    });
+
+                }
+
+            });
+        }
+
+        secondStreet_BUTTON.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+            
+                removeAll();
+
+                secondStreet_METHOD();
+
+            }
+
+        });
+
+        secondStreet_BUTTON.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+              
+                removeAll();
+
+                secondStreet_METHOD();
+
+            }
+
+        });
+
+
+
+        fourthStreet_BUTTON.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+            
+                fourthStreet_BUTTON.setColor(Color.ORANGE);
+                removeAll();
+                fourthStreet_METHOD();
+
+            }
+
+        });
+
+        thirdStreet_BUTTON.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+              
+                removeAll();
+                thirdStreet_METHOD();
+
+            }
+
+        });
+
+    }
+
+    public void secondStreet_METHOD() {
+        currentLocation = "2th Street";
+
+        GImage secondStreet_BG = new GImage("Hospital.jpg");
+        secondStreet_BG.setSize(1400, 750);
+        add(secondStreet_BG);
+
+        GImage secondStreet_CHAR = new GImage("Doctor-01.png");
+        secondStreet_CHAR.setLocation(375, 100);
+        secondStreet_CHAR.setSize(600, 600);
+        add(secondStreet_CHAR);
+
+        GLabel secondStreet_BACKTO_mainRoad = new GLabel("Main Road");
+        secondStreet_BACKTO_mainRoad.setColor(Color.ORANGE);
+        secondStreet_BACKTO_mainRoad.setLocation(42, 260);
+        secondStreet_BACKTO_mainRoad.setFont(locationFONT3);
+        add(secondStreet_BACKTO_mainRoad);
+
+        GLabel secondStreet_BACKTO_thirdStreet = new GLabel("3rd St.");
+        secondStreet_BACKTO_thirdStreet.setColor(Color.ORANGE);
+        secondStreet_BACKTO_thirdStreet.setLocation(42, 290);
+        secondStreet_BACKTO_thirdStreet.setFont(locationFONT3);
+        add(secondStreet_BACKTO_thirdStreet);
+        
+        if(secondStreet_TALK1_TRUE!=0){
+            GImage secondStreet_talk10 = new GImage("doctor_nothing.png");
+            secondStreet_talk10.setLocation(270, 455);
+            secondStreet_talk10.setSize(800, 210);
+            add(secondStreet_talk10);
+    }
+        else {
+            GImage secondStreet_talk1 = new GImage("me1.png");
+            secondStreet_talk1.setLocation(270, 455);
+            secondStreet_talk1.setSize(800, 210);
+            add(secondStreet_talk1);
+
+            secondStreet_talk1.addMouseListener(new MouseAdapter() {
+
+                public void mousePressed(MouseEvent e) {
+                    secondStreet_talk1.setVisible(false);
+                    GImage secondStreet_talk2 = new GImage("doctor1.png");
+                    secondStreet_talk2.setLocation(270, 455);
+                    secondStreet_talk2.setSize(800, 210);
+                    add(secondStreet_talk2);
+
+                    secondStreet_talk2.addMouseListener(new MouseAdapter() {
+
+                        public void mousePressed(MouseEvent e) {
+                            secondStreet_talk2.setVisible(false);
+                            GImage secondStreet_talk3 = new GImage("me2.png");
+                            secondStreet_talk3.setLocation(270, 455);
+                            secondStreet_talk3.setSize(800, 210);
+                            add(secondStreet_talk3);
+
+                            secondStreet_talk3.addMouseListener(new MouseAdapter() {
+
+                                public void mousePressed(MouseEvent e) {
+                                    
+                                    secondStreet_talk3.setVisible(false);
+                                    GImage secondStreet_talk4 = new GImage("doctor2.png");
+                                    secondStreet_talk4.setLocation(270, 455);
+                                    secondStreet_talk4.setSize(800, 210);
+                                    add(secondStreet_talk4);
+     
+                                        secondStreet_talk4.addMouseListener(new MouseAdapter() {
+
+                                        public void mousePressed(MouseEvent e) {
+
+                                            secondStreet_talk4.setVisible(false);
+                                            GImage secondStreet_talk5 = new GImage("me5.png");
+                                            secondStreet_talk5.setLocation(270, 455);
+                                            secondStreet_talk5.setSize(800, 210);
+                                            add(secondStreet_talk5);
+                                           
+                                                 secondStreet_talk5.addMouseListener(new MouseAdapter() {
+
+                                                public void mousePressed(MouseEvent e) {
+
+                                                    secondStreet_talk5.setVisible(false);
+                                                    secondStreet_CHAR.setVisible(false);
+                                                    
+                                                    GImage secondStreet_smallclue = new GImage("pills.png");
+                                                    secondStreet_smallclue.setLocation(170, 520);
+                                                    secondStreet_smallclue.setSize(30, 50);
+                                                    add(secondStreet_smallclue);
+
+                                                    
+                                                            secondStreet_smallclue.addMouseListener(new MouseAdapter() {
+
+                                                        public void mousePressed(MouseEvent e) {
+
+                                                            
+                                                            secondStreet_smallclue.setVisible(false);
+
+
+                                                            GImage secondStreet_MAINclue = new GImage("pills.png");
+                                                            secondStreet_MAINclue.setLocation(550, 100);
+                                                            secondStreet_MAINclue.setSize(250, 450);
+                                                            add(secondStreet_MAINclue);
+                                                            
+                                                            
+                                                            secondStreet_MAINclue.addMouseListener(new MouseAdapter() {
+
+                                                                public void mousePressed(MouseEvent e) {
+
+
+                                                                    secondStreet_MAINclue.setVisible(false);
+                                                                    secondStreet_CHAR.setVisible(true);
+                                                                    secondStreet_MAINclue.sendToBack();
+
+                                                                    GImage secondStreet_talk6 = new GImage("doctor3.png");
+                                                                    secondStreet_talk6.setLocation(270, 455);
+                                                                    secondStreet_talk6.setSize(800, 210);
+                                                                    add(secondStreet_talk6);
+                                                                    
+                                                                        secondStreet_talk6.addMouseListener(new MouseAdapter() {
+
+                                                                        public void mousePressed(MouseEvent e) {
+
+
+                                                                            secondStreet_talk6.setVisible(false);
+                                                                           
+                                                                            GImage secondStreet_talk7 = new GImage("me4.png");
+                                                                            secondStreet_talk7.setLocation(270, 455);
+                                                                            secondStreet_talk7.setSize(800, 210);
+                                                                            add(secondStreet_talk7);
+
+                                                                                secondStreet_talk7.addMouseListener(new MouseAdapter() {
+
+                                                                                public void mousePressed(MouseEvent e) {
+
+                                                                                    secondStreet_talk7.setVisible(false);
+
+                                                                                    GImage secondStreet_talk8 = new GImage("doctor4.png");
+                                                                                    secondStreet_talk8.setLocation(270, 455);
+                                                                                    secondStreet_talk8.setSize(800, 210);
+                                                                                    add(secondStreet_talk8);
+
+                                                                                            secondStreet_talk8.addMouseListener(new MouseAdapter() {
+
+                                                                                            public void mousePressed(MouseEvent e) {
+
+                                                                                                secondStreet_talk8.setVisible(false);
+
+                                                                                                GImage secondStreet_talk9 = new GImage("doctor5.png");
+                                                                                                secondStreet_talk9.setLocation(270, 455);
+                                                                                                secondStreet_talk9.setSize(800, 210);
+                                                                                                add(secondStreet_talk9);
+
+                                                                                            secondStreet_talk9.addMouseListener(new MouseAdapter() {
+                                                                                            public void mousePressed(MouseEvent e) {
+
+                                                                                                secondStreet_talk9.setVisible(false);
+
+                                                                                                GImage secondStreet_talk10 = new GImage("doctor_nothing.png");
+                                                                                                secondStreet_talk10.setLocation(270, 455);
+                                                                                                secondStreet_talk10.setSize(800, 210);
+                                                                                                add(secondStreet_talk10);
+
+                                                                                                secondStreet_TALK1_TRUE = 1; 
+
+                                                                                            }
+                                                                                        });
+
+                                                                                    }
+                                                                                });
+
+                                                                                }
+                                                                            });
+
+                                                                        }
+                                                                    });
+
+                                                                }
+                                                            });
+
+                                                        }
+                                                    });
+
+                                                }
+                                            });
+
+                                        }
+                                    });
+
+                                }
+                            });
+
+                        }
+                    });
+
+                }
+            });
+
+        }
+
+        displayPack();
+
+    
+
+        secondStreet_BACKTO_thirdStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                secondStreet_BACKTO_thirdStreet.setColor(Color.ORANGE);
+                removeAll();
+                displayPack();
+                thirdStreet_METHOD();
+
+            }
+
+        });
+
+        secondStreet_BACKTO_mainRoad.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                secondStreet_BACKTO_mainRoad.setColor(Color.WHITE);
+                secondStreet_BACKTO_mainRoad.setColor(Color.ORANGE);
+                removeAll();
+                displayPack();
+                mainRoad_METHOD();
+            }
+
+        });
+
+    }
+
+    public void thirdStreet_METHOD() {
+        currentLocation = "3rd Street";
+        GImage thirdStreet_BG = new GImage("restaurant.png");
+        thirdStreet_BG.setSize(1400, 750);
+        add(thirdStreet_BG);
+
+        GImage thirdStreet_CHAR = new GImage("Baker-01.png");
+        thirdStreet_CHAR.setLocation(375, 100);
+        thirdStreet_CHAR.setSize(600, 600);
+        add(thirdStreet_CHAR);
+        
+         GLabel thirdStreet_BACKTO_firstStreet = new GLabel("Main Road");
+        thirdStreet_BACKTO_firstStreet.setColor(Color.ORANGE);
+        thirdStreet_BACKTO_firstStreet.setLocation(42, 260);
+        thirdStreet_BACKTO_firstStreet.setFont(locationFONT3);
+        add(thirdStreet_BACKTO_firstStreet);
+
+        GLabel thirdStreet_BACKTO_secondStreet = new GLabel("2nd Street");
+        thirdStreet_BACKTO_secondStreet.setColor(Color.ORANGE);
+        thirdStreet_BACKTO_secondStreet.setLocation(42, 290);
+        thirdStreet_BACKTO_secondStreet.setFont(locationFONT3);
+        add(thirdStreet_BACKTO_secondStreet);
+        
+        GLabel thirdStreet_BACKTO_sixthStreet = new GLabel("6th Street");
+        thirdStreet_BACKTO_sixthStreet.setColor(Color.ORANGE);
+        thirdStreet_BACKTO_sixthStreet.setLocation(42, 350);
+        thirdStreet_BACKTO_sixthStreet.setFont(locationFONT3);
+        add(thirdStreet_BACKTO_sixthStreet);
+        
+        GLabel thirdStreet_BACKTO_fifthStreet = new GLabel("5th Street");
+        thirdStreet_BACKTO_fifthStreet.setColor(Color.ORANGE);
+        thirdStreet_BACKTO_fifthStreet.setLocation(42,320);
+        thirdStreet_BACKTO_fifthStreet.setFont(locationFONT3);
+        add(thirdStreet_BACKTO_fifthStreet);
+        
+         if(thirdStreet_TALK1_TRUE!=0){
+            GImage thirdStreet_talk10 = new GImage("nothing.png");
+            thirdStreet_talk10.setLocation(270, 455);
+            thirdStreet_talk10.setSize(800, 210);
+            add(thirdStreet_talk10);
+         }
+            
+            else {
+            GImage thirdStreet_talk1 = new GImage("choice1.png");
+            thirdStreet_talk1.setLocation(270, 455);
+            thirdStreet_talk1.setSize(800, 210);
+            add(thirdStreet_talk1);
+
+            thirdStreet_talk1.addMouseListener(new MouseAdapter() {
+
+                public void mousePressed(MouseEvent e) {
+                    thirdStreet_talk1.setVisible(false);
+                    GImage thirdStreet_talk2 = new GImage("speech1.png");
+                    thirdStreet_talk2.setLocation(270, 455);
+                    thirdStreet_talk2.setSize(800, 210);
+                    add(thirdStreet_talk2);
+
+                    thirdStreet_talk2.addMouseListener(new MouseAdapter() {
+
+                        public void mousePressed(MouseEvent e) {
+                            thirdStreet_talk2.setVisible(false);
+                            GImage thirdStreet_talk3 = new GImage("choice3.png");
+                            thirdStreet_talk3.setLocation(270, 455);
+                            thirdStreet_talk3.setSize(800, 210);
+                            add(thirdStreet_talk3);
+
+                            thirdStreet_talk3.addMouseListener(new MouseAdapter() {
+
+                                public void mousePressed(MouseEvent e) {
+                                    
+                                    thirdStreet_talk3.setVisible(false);
+                                    GImage thirdStreet_talk4 = new GImage("speech2.png");
+                                    thirdStreet_talk4.setLocation(270, 455);
+                                    thirdStreet_talk4.setSize(800, 210);
+                                    add(thirdStreet_talk4);
+                                    
+                                  thirdStreet_talk4.addMouseListener(new MouseAdapter() {
+
+                                public void mousePressed(MouseEvent e) {
+                                    
+                                    thirdStreet_talk4.setVisible(false);
+                                    thirdStreet_CHAR.setVisible(false);
+                                    
+                                    GImage thirdStreet_smallclue = new GImage("wine_note.png");
+                                    thirdStreet_smallclue.setLocation(700, 420);
+                                    thirdStreet_smallclue.setSize(120, 50);
+                                    add(thirdStreet_smallclue);
+
+                                    
+                                            thirdStreet_smallclue.addMouseListener(new MouseAdapter() {
+
+                                                        public void mousePressed(MouseEvent e) {
+
+                                                            thirdStreet_smallclue.setVisible(false);
+                                                            GImage thirdStreet_MAINclue = new GImage("wine_note.png");
+                                                            thirdStreet_MAINclue.setLocation(380, 200);
+                                                            thirdStreet_MAINclue.setSize(700, 250);
+                                                            add(thirdStreet_MAINclue);
+
+                                                                    thirdStreet_MAINclue.addMouseListener(new MouseAdapter() {
+                                                                    public void mousePressed(MouseEvent e) {
+                                                                        
+                                                                       thirdStreet_MAINclue.setVisible(false);
+                                                                       thirdStreet_MAINclue.sendToBack();
+                                                                       thirdStreet_CHAR.setVisible(true);
+                                                                        GImage thirdStreet_talk5 = new GImage("choice4.png");
+                                                                        thirdStreet_talk5.setLocation(270, 455);
+                                                                        thirdStreet_talk5.setSize(800, 210);
+                                                                        add(thirdStreet_talk5);
+                                                                        
+                                                                                 thirdStreet_talk5.addMouseListener(new MouseAdapter() {
+                                                                            public void mousePressed(MouseEvent e) {
+                                                                                thirdStreet_talk5.setVisible(false);
+                                                                               GImage thirdStreet_talk6 = new GImage("speech3.png");
+                                                                                thirdStreet_talk6.setLocation(270, 455);
+                                                                                thirdStreet_talk6.setSize(800, 210);
+                                                                                add(thirdStreet_talk6);
+                                                                                
+                                                                                          thirdStreet_talk6.addMouseListener(new MouseAdapter() {
+                                                                                        public void mousePressed(MouseEvent e) {
+                                                                                            thirdStreet_talk6.setVisible(false);
+                                                                                           GImage thirdStreet_talk7 = new GImage("speech4.png");
+                                                                                            thirdStreet_talk7.setLocation(270, 455);
+                                                                                            thirdStreet_talk7.setSize(800, 210);
+                                                                                            add(thirdStreet_talk7);
+                                                                                            
+                                                                                                  thirdStreet_talk7.addMouseListener(new MouseAdapter() {
+                                                                                                    public void mousePressed(MouseEvent e) {
+                                                                                                        thirdStreet_talk7.setVisible(false);
+                                                                                                       GImage thirdStreet_talk8 = new GImage("speech5.png");
+                                                                                                        thirdStreet_talk8.setLocation(270, 455);
+                                                                                                        thirdStreet_talk8.setSize(800, 210);
+                                                                                                        add(thirdStreet_talk8);
+                                                                                                        
+                                                                                                                  thirdStreet_talk8.addMouseListener(new MouseAdapter() {
+                                                                                                                public void mousePressed(MouseEvent e) {
+                                                                                                                    thirdStreet_talk8.setVisible(false);
+                                                                                                                   GImage thirdStreet_talk9 = new GImage("nothing.png");
+                                                                                                                    thirdStreet_talk9.setLocation(270, 455);
+                                                                                                                    thirdStreet_talk9.setSize(800, 210);
+                                                                                                                    add(thirdStreet_talk9);
+                                                                                                                    thirdStreet_TALK1_TRUE = 1; 
+
+
+                                                                        }
+                                                                    });
+
+
+                                                                        }
+                                                                    });
+
+
+                                                                        }
+                                                                    });
+
+
+                                                                        }
+                                                                    });
+
+
+                                                                }
+                                                            });
+
+                                                        }
+                                                    });
+
+                                } 
+                            });
+
+                                }
+                            });
+
+                        }
+                    });
+
+                }
+            });
+
+        }
+        
+        
+       
+
+        displayPack();
+
+
+        thirdStreet_BACKTO_firstStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                removeAll();
+                displayPack();
+                mainRoad_METHOD();
+            }
+
+        });
+                
+                 thirdStreet_BACKTO_secondStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                removeAll();
+                displayPack();
+                secondStreet_METHOD();
+            }
+
+        });
+                  thirdStreet_BACKTO_sixthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                removeAll();
+                displayPack();
+                sixthStreet_METHOD();
+            }
+
+        });
+                  
+                   thirdStreet_BACKTO_fifthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                removeAll();
+                displayPack();
+                fifthStreet_METHOD();
+            }
+
+        });
+                 
+                 
+                 
+
+    }
+
+    public void fourthStreet_METHOD() {
+        currentLocation = "4th Street";
+        GImage fourthStreet_BG = new GImage("Station.jpg");
+        fourthStreet_BG.setSize(1400, 750);
+        add(fourthStreet_BG);
+
+        GImage fourthStreet_CHAR = new GImage("Police-01.png");
+        fourthStreet_CHAR.setLocation(375, 100);
+        fourthStreet_CHAR.setSize(600, 600);
+        add(fourthStreet_CHAR);
+    
+        
+         GLabel fourthStreet_BACKTO_mainRoad = new GLabel("Main Road");
+        fourthStreet_BACKTO_mainRoad.setColor(Color.ORANGE);
+        fourthStreet_BACKTO_mainRoad.setLocation(42, 260);
+        fourthStreet_BACKTO_mainRoad.setFont(locationFONT3);
+        add(fourthStreet_BACKTO_mainRoad);
+
+        GLabel fourthStreet_BACKTO_fifthStreet = new GLabel("5th Street");
+        fourthStreet_BACKTO_fifthStreet.setColor(Color.ORANGE);
+        fourthStreet_BACKTO_fifthStreet.setLocation(42, 290);
+        fourthStreet_BACKTO_fifthStreet.setFont(locationFONT3);
+        add(fourthStreet_BACKTO_fifthStreet);
+        
+        GLabel fourthStreet_BACKTO_seventhStreet = new GLabel("7th Street");
+        fourthStreet_BACKTO_seventhStreet.setColor(Color.ORANGE);
+        fourthStreet_BACKTO_seventhStreet.setLocation(42, 320);
+        fourthStreet_BACKTO_seventhStreet.setFont(locationFONT3);
+        add(fourthStreet_BACKTO_seventhStreet);
+
+        displayPack();
+
+        if (theAlleyCHAR_TRUE == 1) {
+            fourthStreet_CHAR.setVisible(false);
+        }
+
+        fourthStreet_CHAR.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                fourthStreet_CHAR.setColor(Color.WHITE);
+           
+                theAlleyCHAR_TRUE = 1;
+                removeAll();
+
+                fourthStreet_METHOD();
+            }
+
+        });
+
+        fourthStreet_BACKTO_mainRoad.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+              
+                removeAll();
+                displayPack();
+                mainRoad_METHOD();
+            }
+
+        });
+
+        fourthStreet_BACKTO_fifthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                fifthStreet_METHOD();
+            }
+
+        });
+
+        fourthStreet_BACKTO_seventhStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+            
+                removeAll();
+                displayPack();
+                seventhStreet_METHOD();
+            }
+
+        });
+
+    }
+
+    public void fifthStreet_METHOD() {
+        currentLocation = "5th Street";
+        GImage fifthStreet_BG = new GImage("CrimeScene.jpg");
+        fifthStreet_BG.setSize(1400, 750);
+        add(fifthStreet_BG);
+
+        GLabel fifthStreet_BACKTO_secondStreet = new GLabel("2nd Street");
+        fifthStreet_BACKTO_secondStreet.setColor(Color.ORANGE);
+        fifthStreet_BACKTO_secondStreet.setLocation(42, 260);
+        fifthStreet_BACKTO_secondStreet.setFont(locationFONT3);
+        add(fifthStreet_BACKTO_secondStreet);
+        
+         GLabel fifthStreet_BACKTO_thirdStreet = new GLabel("3rd Street");
+        fifthStreet_BACKTO_thirdStreet .setColor(Color.ORANGE);
+        fifthStreet_BACKTO_thirdStreet .setLocation(42, 290);
+        fifthStreet_BACKTO_thirdStreet .setFont(locationFONT3);
+        add(fifthStreet_BACKTO_thirdStreet );
+
+        GLabel fifthStreet_BACKTO_fourthStreet = new GLabel("4th Street");
+        fifthStreet_BACKTO_fourthStreet.setColor(Color.ORANGE);
+        fifthStreet_BACKTO_fourthStreet.setLocation(42, 320);
+        fifthStreet_BACKTO_fourthStreet.setFont(locationFONT3);
+        add(fifthStreet_BACKTO_fourthStreet);
+        
+        GLabel fifthStreet_BACKTO_seventhStreet = new GLabel("7th Street");
+        fifthStreet_BACKTO_seventhStreet.setColor(Color.ORANGE);
+        fifthStreet_BACKTO_seventhStreet.setLocation(42, 350);
+        fifthStreet_BACKTO_seventhStreet.setFont(locationFONT3);
+        add(fifthStreet_BACKTO_seventhStreet);
+
+        displayPack();
+
+
+        fifthStreet_BACKTO_secondStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                secondStreet_METHOD();
+            }
+
+        });
+        
+        fifthStreet_BACKTO_thirdStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                thirdStreet_METHOD();
+            }
+
+        });
+        
+        fifthStreet_BACKTO_fourthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                fourthStreet_METHOD();
+            }
+
+        });
+        
+        fifthStreet_BACKTO_seventhStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                seventhStreet_METHOD();
+            }
+
+        });
+
+    }
+
+    public void seventhStreet_METHOD() {
+        currentLocation = "7th Street";
+        GImage seventhStreet_BG = new GImage("Clubroom.jpg");
+        seventhStreet_BG.setSize(1400, 750);
+        add(seventhStreet_BG);
+
+        GImage seventhStreet_CHAR = new GImage("Student-01.png");
+        seventhStreet_CHAR.setLocation(375, 100);
+        seventhStreet_CHAR.setSize(600, 600);
+        add(seventhStreet_CHAR);
+
+        GLabel seventhStreet_BACKTO_fifthStreet = new GLabel("5th Street");
+        seventhStreet_BACKTO_fifthStreet.setColor(Color.ORANGE);
+        seventhStreet_BACKTO_fifthStreet.setLocation(42,290);
+        seventhStreet_BACKTO_fifthStreet.setFont(locationFONT3);
+        add(seventhStreet_BACKTO_fifthStreet);
+
+        GLabel seventhStreet_BACKTO_sixthStreet = new GLabel("6th Street");
+        seventhStreet_BACKTO_sixthStreet.setColor(Color.ORANGE);
+        seventhStreet_BACKTO_sixthStreet.setLocation(42, 320);
+        seventhStreet_BACKTO_sixthStreet.setFont(locationFONT3);
+        add(seventhStreet_BACKTO_sixthStreet);
+
+        GLabel seventhStreet_BACKTO_fourthStreet = new GLabel("4th Street");
+        seventhStreet_BACKTO_fourthStreet.setColor(Color.ORANGE);
+        seventhStreet_BACKTO_fourthStreet.setLocation(42, 260);
+        seventhStreet_BACKTO_fourthStreet.setFont(locationFONT3);
+        add(seventhStreet_BACKTO_fourthStreet);
+
+        displayPack();
+
+        if (theAlleyCHAR_TRUE == 1) {
+            seventhStreet_CHAR.setVisible(false);
+        }
+
+        seventhStreet_CHAR.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                theAlleyCHAR_TRUE = 1;
+                removeAll();
+
+                seventhStreet_METHOD();
+            }
+
+        });
+
+        seventhStreet_BACKTO_fifthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+               
+                removeAll();
+                displayPack();
+                fifthStreet_METHOD();
+            }
+
+        });
+
+        seventhStreet_BACKTO_sixthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+              
+                removeAll();
+                displayPack();
+                sixthStreet_METHOD();
+            }
+
+        });
+
+        seventhStreet_BACKTO_fourthStreet.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                
+                removeAll();
+                displayPack();
+                fourthStreet_METHOD();
+            }
+
+        });
+
+    }
+
+
+    public void quitGame() {
+
+        if (YouWon == 0) {
+            GLabel quitLabel = new GLabel("QUITTER");
+            quitLabel.setColor(Color.ORANGE);
+            quitLabel.setLocation(220, 300);
+            quitLabel.setFont(locationFONT3);
+            add(quitLabel);
+
+            GLabel quitLabel2 = new GLabel("exit the game manually");
+            quitLabel2.setColor(Color.ORANGE);
+            quitLabel2.setLocation(220, 400);
+            quitLabel2.setFont(normalFONT);
+            add(quitLabel2);
+        } else {
+            GLabel quitLabel = new GLabel("You won the game, close it manually");
+            quitLabel.setColor(Color.ORANGE);
+            quitLabel.setLocation(220, 300);
+            quitLabel.setFont(locationFONT3);
+            add(quitLabel);
+        }
+    }
+}
